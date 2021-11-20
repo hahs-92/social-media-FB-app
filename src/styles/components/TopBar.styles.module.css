@@ -1,0 +1,104 @@
+.TopBar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    background-color: var(--BG);
+}
+
+.TopBarLeft {
+    flex: 3;
+}
+
+.Logo {
+    margin-left: 2rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.TopBarCenter {
+    flex: 5;
+}
+
+.SearchBar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    background-color: white;
+    border-radius: 3rem;
+}
+
+.SearchIcon {
+    margin-left: 1rem;
+    font-size: 2rem !important;
+}
+
+.SearchInput {
+    width: 70%;
+    border: none;
+}
+
+.SearchInput:focus {
+    outline: none;
+}
+
+.TopBarRight {
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.Link {
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.TopBarIcons {
+    display: flex;
+}
+
+.IconItem {
+    position: relative;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.IconItem svg {
+    font-size: 2rem;
+}
+
+.IconBage {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.2rem;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+}
+
+.TopBarImage {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.TopBarImage img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
