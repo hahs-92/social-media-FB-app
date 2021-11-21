@@ -1,0 +1,58 @@
+.SideBar {
+    flex: 3;
+    height: calc(100vh - 5rem);
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(187, 175, 175);
+}
+
+.Wrapper {
+    padding: 2rem;
+}
+
+.ListItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.Icon {
+    margin-right: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.Button {
+    padding: 1rem;
+    width: 15rem;
+    border: none;
+    border-radius: .5rem;
+    font-weight: 500;
+}
+
+.Hr {
+    margin:  2rem 0;
+}
+
+.Friend {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.Friend img {
+    margin-right: 1rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}

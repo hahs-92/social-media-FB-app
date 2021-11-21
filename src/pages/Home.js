@@ -1,14 +1,23 @@
 import React from 'react'
 //styles
-import styles from '../styles/pages/Home.styles.modules.css'
+import styles from '../styles/pages/Home.styles.module.css'
 //components
 import TopBar from '../components/TopBar'
+import SideBar from '../components/SideBar'
+import Feed from '../components/Feed'
+import RightBar from '../components/RightBar'
 
 const Home = () => {
     return (
-        <div className={styles.Home }>
+        <>
             <TopBar />
-        </div>
+
+            <div className={ styles.HomeWrapper }>
+                <SideBar />
+                <Feed />
+                <RightBar />
+            </div>
+        </>
     )
 }
 
