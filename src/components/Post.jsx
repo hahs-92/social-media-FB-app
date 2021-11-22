@@ -1,3 +1,4 @@
+import { useState } from 'react'
 //icons
 import { MoreVert } from '@mui/icons-material'
 //styles
@@ -6,6 +7,14 @@ import styles from '../styles/components/Post.styles.module.css'
 import { Users } from '../dummyData'
 
 const Post = ({ post }) => {
+    const [like, setLike] = useState(post.like)
+    const [isLiked, setIsLiked] = useState(false)
+
+    const likeHandler = () => {
+        setLike(isLiked ? like -1 : like + 1)
+        setIsLiked(!isLiked)
+    }
+
     return (
         <article className={ styles.Post }>
             <div className={ styles.Wrapper }>
@@ -32,10 +41,10 @@ const Post = ({ post }) => {
 
                 <section className={ styles.Bottom }>
                     <section className={styles.BottomLeft}>
-                        <img src="/assets/like.png" alt="like-icon" />
-                        <img src="/assets/heart.png" alt="heart-icon" />
+                        <img src="/assets/like.png" alt="like-icon" onClick={ likeHandler } />
+                        <img src="/assets/heart.png" alt="heart-icon" onClick={ likeHandler } />
                         <span className={ styles.BottonCounter }>
-                            { post.like }people liked it
+                            { like } people liked it
                         </span>
                     </section>
 
