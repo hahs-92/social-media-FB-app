@@ -1,5 +1,7 @@
 .SideBar {
     flex: 3;
+    position: sticky;
+    top: 5rem;
     height: calc(100vh - 5rem);
     overflow-y: scroll;
 }
@@ -41,18 +43,4 @@
 
 .Hr {
     margin:  2rem 0;
-}
-
-.Friend {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.Friend img {
-    margin-right: 1rem;
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    object-fit: cover;
 }

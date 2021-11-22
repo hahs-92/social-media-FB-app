@@ -11,6 +11,10 @@ import {
 } from '@mui/icons-material';
 //styles
 import styles from '../styles/components/SideBar.styles.module.css'
+//components
+import CloseFriend from './CloseFriend'
+//dummyData
+import { Users } from '../dummyData'
 
 function SideBar() {
     return (
@@ -97,47 +101,11 @@ function SideBar() {
                 <hr className={ styles.Hr } />
 
                 <ul className={ styles.FriendList}>
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
-
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
-
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
-
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
-
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
-
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
-
-                    <li className={ styles.Friend }>
-                        <img src="/assets/person/2.jpeg" alt="friend" />
-
-                        <span className={ styles.FriendName}>Daniel Gray</span>
-                    </li>
+                    {
+                        Users.map(user => (
+                            <CloseFriend key={ user.id } user={ user } />
+                        ))
+                    }
                 </ul>
             </div>
         </aside>

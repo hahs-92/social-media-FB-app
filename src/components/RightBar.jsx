@@ -1,4 +1,10 @@
+//styles
 import styles from '../styles/components/RightBar.styles.module.css'
+//components
+import Online from './Online'
+//dummyData
+import { Users } from '../dummyData'
+
 
 const RightBar = () => {
     return (
@@ -18,60 +24,11 @@ const RightBar = () => {
                 </h4>
 
                 <ul className={ styles.FriendList}>
-                    <li className={ styles.Friend }>
-                        <article className={ styles.ProfileImageWrapper }>
-                            <img className={ styles.ProfileImage } src="assets/person/3.jpeg" alt="person-profile" />
-
-                            <span className={ styles.Online}></span>
-                        </article>
-
-                        <span className={ styles.UserName }>Jhon Carter</span>
-                    </li>
-                    <li className={ styles.Friend }>
-                        <article className={ styles.ProfileImageWrapper }>
-                            <img className={ styles.ProfileImage } src="assets/person/3.jpeg" alt="person-profile" />
-
-                            <span className={ styles.Online}></span>
-                        </article>
-
-                        <span className={ styles.UserName }>Jhon Carter</span>
-                    </li>
-                    <li className={ styles.Friend }>
-                        <article className={ styles.ProfileImageWrapper }>
-                            <img className={ styles.ProfileImage } src="assets/person/3.jpeg" alt="person-profile" />
-
-                            <span className={ styles.Online}></span>
-                        </article>
-
-                        <span className={ styles.UserName }>Jhon Carter</span>
-                    </li>
-                    <li className={ styles.Friend }>
-                        <article className={ styles.ProfileImageWrapper }>
-                            <img className={ styles.ProfileImage } src="assets/person/3.jpeg" alt="person-profile" />
-
-                            <span className={ styles.Online}></span>
-                        </article>
-
-                        <span className={ styles.UserName }>Jhon Carter</span>
-                    </li>
-                    <li className={ styles.Friend }>
-                        <article className={ styles.ProfileImageWrapper }>
-                            <img className={ styles.ProfileImage } src="assets/person/3.jpeg" alt="person-profile" />
-
-                            <span className={ styles.Online}></span>
-                        </article>
-
-                        <span className={ styles.UserName }>Jhon Carter</span>
-                    </li>
-                    <li className={ styles.Friend }>
-                        <article className={ styles.ProfileImageWrapper }>
-                            <img className={ styles.ProfileImage } src="assets/person/3.jpeg" alt="person-profile" />
-
-                            <span className={ styles.Online}></span>
-                        </article>
-
-                        <span className={ styles.UserName }>Jhon Carter</span>
-                    </li>
+                   {
+                       Users.map(user => (
+                           <Online key={ user.id } user={ user } />
+                       ))
+                   }
                 </ul>
             </div>
         </section>

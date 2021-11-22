@@ -6,6 +6,7 @@
     height: 5rem;
     width: 100%;
     background-color: var(--BG);
+    z-index: 999;
 }
 
 .TopBarLeft {

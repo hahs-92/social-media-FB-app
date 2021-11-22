@@ -2,16 +2,20 @@
 import { MoreVert } from '@mui/icons-material'
 //styles
 import styles from '../styles/components/Post.styles.module.css'
+//dummyData
+import { Users } from '../dummyData'
 
-const Post = () => {
+const Post = ({ post }) => {
     return (
         <article className={ styles.Post }>
             <div className={ styles.Wrapper }>
                 <section className={ styles.Top }>
                     <div className={ styles.TopLeft }>
-                        <img src="/assets/person/1.jpeg" alt="avatar" />
-                        <span className={ styles.UserName }>Alex HAHS</span>
-                        <span className={ styles.Date }>5 min ago</span>
+                        <img src={Users.filter(user => user.id === post?.userId)[0].profilePicture} alt="avatar" />
+                        <span className={ styles.UserName }>
+                            { Users.filter(user => user.id === post?.userId)[0].username }
+                        </span>
+                        <span className={ styles.Date }>{ post.date }</span>
                     </div>
 
                     <div className={ styles.TopRight }>
@@ -21,9 +25,9 @@ const Post = () => {
 
                 <section className={ styles.Center }>
                     <span className={ styles.CenterText }>
-                        Hey! Its my firts post :)
+                        { post?.desc }
                     </span>
-                    <img src="/assets/post/1.jpeg" alt="metro" />
+                    <img src={post?.photo} alt="metro" />
                 </section>
 
                 <section className={ styles.Bottom }>
@@ -31,13 +35,13 @@ const Post = () => {
                         <img src="/assets/like.png" alt="like-icon" />
                         <img src="/assets/heart.png" alt="heart-icon" />
                         <span className={ styles.BottonCounter }>
-                            32 people liked it
+                            { post.like }people liked it
                         </span>
                     </section>
 
                     <section className={ styles.BottomRight }>
                         <span className={ styles.CommentText }>
-                            9 comments
+                            { post.comment} comments
                         </span>
                     </section>
                 </section>
