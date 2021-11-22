@@ -1,0 +1,80 @@
+.Post {
+    margin: 3rem 0;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 1.6rem -0.8rem rgba(0, 0, 0, 0.68);
+}
+
+.Wrapper {
+    padding: 1rem;
+}
+
+.Top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TopLeft {
+    display: flex;
+    align-items: center;
+}
+
+.TopLeft img {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.UserName {
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.Date {
+    font-size: 1.2rem;
+}
+
+.Center {
+    margin: 2rem 0;
+}
+
+.Center img {
+    margin-top: 2rem;
+    width: 100%;
+    max-height: 50rem;
+    object-fit: contain;
+}
+
+.Bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.BottomLeft {
+    display: flex;
+    align-items: center;
+}
+
+
+.BottomLeft img {
+    margin-right: .5rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    cursor: pointer;
+}
+
+.BottonCounter {
+    font-size: 1.5rem;
+}
+
+
+.CommentText {
+    border-bottom: 1px dashed gray;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+

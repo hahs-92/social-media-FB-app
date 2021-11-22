@@ -1,5 +1,5 @@
 //icons
-import { Search, Person, Chat, Notifications } from '@mui/icons-material';
+import { Search, Person, Chat, Notifications } from '@mui/icons-material'
 //styles
 import styles from '../styles/components/TopBar.styles.module.css'
 
