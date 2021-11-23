@@ -99,8 +99,11 @@ const RightBar = ({profile}) => {
     return (
         <section className={ styles.RightBar }>
             <div className={ styles.Wrapper }>
-                <ProfileRightBar />
-                {/* <HomeRightBar /> */}
+                {
+                    profile
+                        ? <ProfileRightBar />
+                        : <HomeRightBar />
+                }
             </div>
         </section>
     )

@@ -6,7 +6,7 @@ import SideBar from '../components/SideBar'
 import Feed from '../components/Feed'
 import RightBar from '../components/RightBar'
 
-export const Profile = () => {
+const Profile = () => {
     return (
         <>
             <TopBar />
@@ -38,3 +38,5 @@ export const Profile = () => {
         </>
     )
 }
+
+export default Profile
