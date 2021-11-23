@@ -30,4 +30,44 @@
 
 .Title {
     margin-bottom: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.Info {
+    margin-bottom: 3rem;
+}
+
+.InfoItem {
+    margin-bottom: 1rem;
+}
+
+.InfoKey {
+    margin-right: 1.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.InfoValue {
+    font-weight: 300;
+}
+
+.Followings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Following {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.FollowingImage {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: .5rem;
 }

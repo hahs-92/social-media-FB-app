@@ -1,0 +1,53 @@
+.Profile {
+    display: flex;
+}
+
+.Right {
+    flex: 9;
+}
+
+.Cover {
+    position: relative;
+    height: 32rem;
+}
+
+
+.CoverImage {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+}
+
+.UserImage {
+    position: absolute;
+    top: 15rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 15rem;
+    height: 15rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.InfoName {
+    font-size: 2.4rem;
+}
+
+
+.InfoDesc {
+    font-weight: 300;
+}
+
+
+.RightBottom {
+    display: flex;
+}
