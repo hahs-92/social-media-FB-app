@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 //icons
 import { Search, Person, Chat, Notifications } from '@mui/icons-material'
 //styles
@@ -8,7 +9,9 @@ const TopBar = () => {
     return (
         <article className={ styles.TopBar }>
             <section className={ styles.TopBarLeft}>
-                <span className={styles.Logo}>HAHSSocial</span>
+                <Link to='/'>
+                    <span className={styles.Logo}>HAHSSocial</span>
+                </Link>
             </section>
 
             <section className={ styles.TopBarCenter}>

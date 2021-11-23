@@ -7,6 +7,8 @@ import Feed from '../components/Feed'
 import RightBar from '../components/RightBar'
 
 const Profile = () => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
     return (
         <>
             <TopBar />
@@ -17,9 +19,17 @@ const Profile = () => {
                 <section className={ styles.Right }>
                     <section className={ styles.RightTop }>
                         <div className={ styles.Cover }>
-                            <img className={ styles.CoverImage } src="assets/post/3.jpeg" alt="cover" />
+                            <img
+                                className={ styles.CoverImage }
+                                src={`${PF}post/3.jpeg`}
+                                alt="cover"
+                            />
 
-                            <img className={ styles.UserImage } src="assets/person/7.jpeg" alt="user" />
+                            <img
+                                className={ styles.UserImage }
+                                src={`${PF}person/7.jpeg`}
+                                alt="user"
+                            />
                         </div>
 
                         <div className={ styles.Info }>

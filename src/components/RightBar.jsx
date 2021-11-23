@@ -5,6 +5,7 @@ import Online from './Online'
 //dummyData
 import { Users } from '../dummyData'
 
+const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
 const HomeRightBar = () => (
     <>
@@ -57,37 +58,65 @@ const ProfileRightBar = () => (
 
        <section className={ styles.Followings}>
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/1.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/1.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
 
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/7.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/2.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
 
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/2.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/3.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
 
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/3.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/4.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
 
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/4.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/5.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
 
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/5.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/6.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
 
            <div className={ styles.Following }>
-               <img className={ styles.FollowingImage } src="assets/person/6.jpeg" alt="following" />
+               <img
+                className={ styles.FollowingImage }
+                src={`${PF}person/7.jpeg`}
+                alt="following"
+            />
                <span className={ styles.FollowingName }>Jess Gray </span>
            </div>
        </section>

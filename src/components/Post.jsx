@@ -10,6 +10,8 @@ const Post = ({ post }) => {
     const [like, setLike] = useState(post.like)
     const [isLiked, setIsLiked] = useState(false)
 
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
     const likeHandler = () => {
         setLike(isLiked ? like -1 : like + 1)
         setIsLiked(!isLiked)
@@ -20,7 +22,10 @@ const Post = ({ post }) => {
             <div className={ styles.Wrapper }>
                 <section className={ styles.Top }>
                     <div className={ styles.TopLeft }>
-                        <img src={Users.filter(user => user.id === post?.userId)[0].profilePicture} alt="avatar" />
+                        <img
+                            src={Users.filter(user => user.id === post?.userId)[0].profilePicture}
+                            alt="avatar"
+                        />
                         <span className={ styles.UserName }>
                             { Users.filter(user => user.id === post?.userId)[0].username }
                         </span>
@@ -36,13 +41,13 @@ const Post = ({ post }) => {
                     <span className={ styles.CenterText }>
                         { post?.desc }
                     </span>
-                    <img src={post?.photo} alt="metro" />
+                    <img src={ PF+post.photo } alt="metro" />
                 </section>
 
                 <section className={ styles.Bottom }>
                     <section className={styles.BottomLeft}>
-                        <img src="/assets/like.png" alt="like-icon" onClick={ likeHandler } />
-                        <img src="/assets/heart.png" alt="heart-icon" onClick={ likeHandler } />
+                        <img src={`${PF}like.png`} alt="like-icon" onClick={ likeHandler } />
+                        <img src={`${PF}heart.png`} alt="heart-icon" onClick={ likeHandler } />
                         <span className={ styles.BottonCounter }>
                             { like } people liked it
                         </span>
