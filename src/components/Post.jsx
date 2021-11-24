@@ -1,14 +1,28 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { format } from 'timeago.js'
 //icons
 import { MoreVert } from '@mui/icons-material'
 //styles
 import styles from '../styles/components/Post.styles.module.css'
 //dummyData
-import { Users } from '../dummyData'
+// import { Users } from '../dummyData'
+const API_URL = process.env.REACT_APP_API_URL
 
 const Post = ({ post }) => {
-    const [like, setLike] = useState(post.like)
+    const [like, setLike] = useState(post.likes.length)
     const [isLiked, setIsLiked] = useState(false)
+    const [user, setUser] = useState({})
+
+    const fetchUser = async() => {
+        const res = await axios.get(`${API_URL}/users/${post.userId}`)
+        setUser(res.data)
+    }
+
+    useEffect(() => {
+        fetchUser()
+    },[post.userId])
+
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
@@ -23,13 +37,15 @@ const Post = ({ post }) => {
                 <section className={ styles.Top }>
                     <div className={ styles.TopLeft }>
                         <img
-                            src={Users.filter(user => user.id === post?.userId)[0].profilePicture}
+                            // src={Users.filter(user => user.id === post?.userId)[0].profilePicture}
+                            src={ user.profilePicture || PF+"person/noAvatar.png" }
                             alt="avatar"
                         />
                         <span className={ styles.UserName }>
-                            { Users.filter(user => user.id === post?.userId)[0].username }
+                            {/* { Users.filter(user => user.id === post?.userId)[0].username } */}
+                            { user.username }
                         </span>
-                        <span className={ styles.Date }>{ post.date }</span>
+                        <span className={ styles.Date }>{ format(post.createdAt) }</span>
                     </div>
 
                     <div className={ styles.TopRight }>
@@ -41,7 +57,9 @@ const Post = ({ post }) => {
                     <span className={ styles.CenterText }>
                         { post?.desc }
                     </span>
-                    <img src={ PF+post.photo } alt="metro" />
+
+                    { post.img && <img src={ post.img || PF+"person/noCover.png" } alt="metro" /> }
+
                 </section>
 
                 <section className={ styles.Bottom }>

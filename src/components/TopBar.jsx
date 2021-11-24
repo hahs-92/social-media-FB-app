@@ -17,7 +17,11 @@ const TopBar = () => {
             <section className={ styles.TopBarCenter}>
                 <div className={ styles.SearchBar }>
                     <Search className={ styles.SearchIcon} />
-                    <input type="text" className={styles.SearchInput}  placeholder='Search for friend, post or video'/>
+                    <input
+                        type="text"
+                        className={styles.SearchInput}
+                        placeholder='Search for friend, post or video'
+                    />
                 </div>
             </section>
 
