@@ -7,6 +7,22 @@ import { Users } from '../dummyData'
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
+
+const RightBar = ({user}) => {
+    return (
+        <section className={ styles.RightBar }>
+            <div className={ styles.Wrapper }>
+                {
+                    user
+                        ? <ProfileRightBar user={ user } />
+                        : <HomeRightBar />
+                }
+            </div>
+        </section>
+    )
+}
+
+
 const HomeRightBar = () => (
     <>
         <article className={ styles.BirthDayWrapper}>
@@ -33,24 +49,31 @@ const HomeRightBar = () => (
 )
 
 
-const ProfileRightBar = () => (
+const ProfileRightBar = ({user}) => (
     <>
        <h4 className={ styles.Title}>User information</h4>
 
        <section className={ styles.Info }>
            <div className={ styles.InfoItem }>
                <span className={ styles.InfoKey }>City:</span>
-               <span className={ styles.InfoValue }>New York</span>
+               <span className={ styles.InfoValue }>{user.city}</span>
            </div>
 
            <div className={ styles.InfoItem }>
                <span className={ styles.InfoKey }>From:</span>
-               <span className={ styles.InfoValue }>Puente Nacional</span>
+               <span className={ styles.InfoValue }>{user.from}</span>
            </div>
 
            <div className={ styles.InfoItem }>
                <span className={ styles.InfoKey }>Relationship:</span>
-               <span className={ styles.InfoValue }>Single</span>
+               <span className={ styles.InfoValue }>
+                    { user.relationship === 1
+                        ? "single"
+                        : user.relationship === 2
+                        ? "married"
+                        : "-"
+                    }
+               </span>
            </div>
        </section>
 
@@ -122,20 +145,5 @@ const ProfileRightBar = () => (
        </section>
     </>
 )
-
-
-const RightBar = ({profile}) => {
-    return (
-        <section className={ styles.RightBar }>
-            <div className={ styles.Wrapper }>
-                {
-                    profile
-                        ? <ProfileRightBar />
-                        : <HomeRightBar />
-                }
-            </div>
-        </section>
-    )
-}
 
 export default RightBar

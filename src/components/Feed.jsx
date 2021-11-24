@@ -9,12 +9,17 @@ import Post from './Post'
 // import { Posts } from '../dummyData.js'
 const API_URL = process.env.REACT_APP_API_URL
 
-const Feed = () => {
+const Feed = ({username}) => {
     const [posts, setPost] = useState([])
 
     const fetchPosts = async() => {
-        const res = await axios.get(`${API_URL}/posts/timeline/61957b6103b0ce5548e1c467`)
-        setPost(res.data)
+        const res = username
+            ? await axios.get(`${API_URL}/posts/profile/${username}`)
+            : await axios.get(`${API_URL}/posts/timeline/61957b6103b0ce5548e1c467`)
+
+        res.data.length
+            ? setPost(res.data)
+            : setPost([res.data])
     }
 
     useEffect(() => {
@@ -26,7 +31,7 @@ const Feed = () => {
             <div className={ styles.Wrapper }>
                 <Share />
                 {
-                    posts.map(post => (
+                    posts.length && posts.map(post => (
                         <Post key={ post._id } post={ post } />
                     ))
                 }

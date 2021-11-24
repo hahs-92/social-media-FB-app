@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { format } from 'timeago.js'
 //icons
@@ -15,7 +16,7 @@ const Post = ({ post }) => {
     const [user, setUser] = useState({})
 
     const fetchUser = async() => {
-        const res = await axios.get(`${API_URL}/users/${post.userId}`)
+        const res = await axios.get(`${API_URL}/users/?userId=${post.userId}`)
         setUser(res.data)
     }
 
@@ -36,11 +37,13 @@ const Post = ({ post }) => {
             <div className={ styles.Wrapper }>
                 <section className={ styles.Top }>
                     <div className={ styles.TopLeft }>
-                        <img
-                            // src={Users.filter(user => user.id === post?.userId)[0].profilePicture}
-                            src={ user.profilePicture || PF+"person/noAvatar.png" }
-                            alt="avatar"
-                        />
+                        <Link to={`/profile/${ user.username }`}>
+                            <img
+                                // src={Users.filter(user => user.id === post?.userId)[0].profilePicture}
+                                src={ user?.profilePicture || PF+"person/noAvatar.png" }
+                                alt="avatar"
+                            />
+                        </Link>
                         <span className={ styles.UserName }>
                             {/* { Users.filter(user => user.id === post?.userId)[0].username } */}
                             { user.username }
