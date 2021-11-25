@@ -1,24 +1,27 @@
+//actions
+import { actions } from './AuthActions'
+
 const AuthReducer = (state, action) => {
     switch (action.type) {
-        case 'LOGIN_START':
+        case actions.LOGIN_START:
             return {
                 ...state,
                 user: null,
-                isFecthing: true,
+                isFetching: true,
                 error: false
             }
-        case 'LOGIN_SUCCESS':
+        case actions.LOGIN_SUCCESS:
             return {
                 ...state,
                 user: action.payload,
-                isFecthing: false,
+                isFetching: false,
                 error: false
             }
-        case 'LOGIN_FAILURE':
+        case actions.LOGIN_FAILURE:
             return {
                 ...state,
                 user: null,
-                isFecthing: false,
+                isFetching: false,
                 error: true
             }
 

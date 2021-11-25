@@ -64,6 +64,14 @@
     cursor: pointer;
 }
 
+.Button:focus {
+    outline: none;
+}
+
+.Button:disabled {
+    cursor: not-allowed;
+}
+
 .Forgot {
     text-align: center;
     color: #1775ee;

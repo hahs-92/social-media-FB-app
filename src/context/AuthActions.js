@@ -1,13 +1,20 @@
-export const LoginStart = (user) => ({
-    type: 'LOGIN_START'
+export const actions = {
+    LOGIN_START: 'LOGIN_START',
+    LOGIN_SUCCESS: 'LOGIN_SUCCESS',
+    LOGIN_FAILURE: 'LOGIN_FAILURE'
+}
+
+
+export const LoginStart = (userCredentials) => ({
+    type: actions.LOGIN_START
 })
 
 export const LoginSuccess = (user) => ({
-    type: 'LOGIN_SUCCESS',
+    type: actions.LOGIN_SUCCESS,
     payload: user
 })
 
 export const LoginFailure = (error) => ({
-    type: 'LOGIN_FAILURE',
+    type: actions.LOGIN_FAILURE,
     payload: error
 })

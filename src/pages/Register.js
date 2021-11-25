@@ -1,6 +1,19 @@
+import { useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router'
+//styles
 import styles from '../styles/pages/Register.styles.module.css'
+//context
+import { AuthContext } from '../context/AuthContext'
 
 const Register = () => {
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        user && navigate('/')
+    }, [user])
+
+
     return (
         <section className={ styles.Register }>
             <div className={ styles.Wrapper }>

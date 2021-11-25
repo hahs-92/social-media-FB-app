@@ -1,16 +1,39 @@
-import { useRef } from 'react'
+import { useRef, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+//icons-components
+import { CircularProgress } from '@mui/material'
 //styles
 import styles from '../styles/pages/Login.styles.module.css'
+//helpers
+import { loginCall } from '../helpers/apiCalls'
+//context
+import { AuthContext } from '../context/AuthContext'
 
 const Login = () => {
 
     const email = useRef()
     const password = useRef()
 
+    const navigate = useNavigate()
+
+    const {
+        user,
+        isFetching,
+        error,
+        dispatch
+    } = useContext(AuthContext)
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(email.current.value)
+        loginCall({
+            email: email.current.value,
+            password: password.current.value
+        }, dispatch)
     }
+
+    useEffect(() => {
+        user && navigate('/')
+    }, [user])
 
     return (
         <section className={ styles.Login }>
@@ -41,14 +64,16 @@ const Login = () => {
                             ref={ password }
                         />
 
-                        <button className={ styles.Button} type="submit">Log In</button>
+                        <button className={ styles.Button} type="submit" disabled={ isFetching }>
+                            { isFetching ? <CircularProgress color="inherit"  /> : "Log In" }
+                        </button>
 
                         <span className={ styles.Forgot }>Forgot Password?</span>
 
                         <button
                             className={ `${styles.Button} ${styles.RegisterButton}` }
                             type="submit">
-                                Create a New Account
+                                { isFetching ? <CircularProgress color="inherit" /> : "Create a New Account" }
                         </button>
                     </form>
                 </section>
