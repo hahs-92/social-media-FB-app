@@ -25,10 +25,15 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log("email: ", email.current.value)
         loginCall({
             email: email.current.value,
             password: password.current.value
         }, dispatch)
+    }
+
+    const handleRegister = () => {
+        navigate('/register')
     }
 
     useEffect(() => {
@@ -72,7 +77,9 @@ const Login = () => {
 
                         <button
                             className={ `${styles.Button} ${styles.RegisterButton}` }
-                            type="submit">
+                            type="button"
+                            onClick={ handleRegister }
+                            >
                                 { isFetching ? <CircularProgress color="inherit" /> : "Create a New Account" }
                         </button>
                     </form>
