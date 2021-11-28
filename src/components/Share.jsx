@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 //icons
 import {
     PermMedia,
@@ -7,13 +8,21 @@ import {
 } from '@mui/icons-material'
 //styles
 import styles from '../styles/components/Share.styles.module.css'
+//context
+import { AuthContext } from '../context/AuthContext'
+
+const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
 
 const Share = () => {
+
+    const { user } =useContext(AuthContext)
+
     return (
         <article className={ styles.Share }>
             <div className={ styles.Wrapper}>
                 <section className={ styles.Top }>
-                    <img src="/assets/person/1.jpeg" alt="person" />
+                    <img src={ user.coverPicture || `${PF}person/noAvatar.png`} alt="person" />
 
                     <input
                         className={ styles.Input }

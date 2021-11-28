@@ -1,11 +1,17 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 //icons
 import { Search, Person, Chat, Notifications } from '@mui/icons-material'
 //styles
 import styles from '../styles/components/TopBar.styles.module.css'
+//constex
+import { AuthContext } from '../context/AuthContext'
 
+const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
 const TopBar = () => {
+
+    const { user } = useContext(AuthContext)
     return (
         <article className={ styles.TopBar }>
             <section className={ styles.TopBarLeft}>
@@ -49,7 +55,12 @@ const TopBar = () => {
                 </div>
 
                 <div className={ styles.TopBarImage}>
-                    <img src="/assets/person/1.jpeg" alt="top-pinture" />
+                    <Link to={`/profile/${ user.username }`}>
+                        <img
+                            src={ user.profilePicture || `${PF}/person/noAvatar.png` }
+                            alt="top-pinture"
+                        />
+                    </Link>
                 </div>
             </section>
         </article>

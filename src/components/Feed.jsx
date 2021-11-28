@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 //styles
 import styles from '../styles/components/Feed.styles.module.css'
@@ -7,25 +7,32 @@ import Share from './Share'
 import Post from './Post'
 //dummyData
 // import { Posts } from '../dummyData.js'
+//context
+import { AuthContext } from '../context/AuthContext'
+
 const API_URL = process.env.REACT_APP_API_URL
 
 const Feed = ({username}) => {
+    const { user } = useContext(AuthContext)
     const [posts, setPost] = useState([])
 
     const fetchPosts = async() => {
         const res = username
             ? await axios.get(`${API_URL}/posts/profile/${username}`)
-            : await axios.get(`${API_URL}/posts/timeline/61957b6103b0ce5548e1c467`)
+            : await axios.get(`${API_URL}/posts/timeline/${user._id}`)
 
         res.data.length
             ? setPost(res.data)
             : setPost([res.data])
+
+            console.log("res: ", res.data)
     }
 
     useEffect(() => {
         fetchPosts()
-    },[])
+    },[username, user._id])
 
+    console.log("posts: ", posts)
     return (
         <section className={ styles.Feed }>
             <div className={ styles.Wrapper }>
