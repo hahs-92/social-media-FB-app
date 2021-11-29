@@ -21,11 +21,14 @@ const Feed = ({username}) => {
             ? await axios.get(`${API_URL}/posts/profile/${username}`)
             : await axios.get(`${API_URL}/posts/timeline/${user._id}`)
 
+        //order data by createdAt
+        res.data = res.data.sort((post1, post2) => {
+            return new Date(post2.createdAt) - new Date(post1.createdAt)
+        })
         res.data.length
             ? setPost(res.data)
             : setPost([res.data])
 
-            console.log("res: ", res.data)
     }
 
     useEffect(() => {
@@ -37,11 +40,11 @@ const Feed = ({username}) => {
         <section className={ styles.Feed }>
             <div className={ styles.Wrapper }>
                 <Share />
-                {
+                {/* {
                     posts.length && posts.map(post => (
                         <Post key={ post._id } post={ post } />
                     ))
-                }
+                } */}
             </div>
         </section>
     )

@@ -4,7 +4,7 @@ import AuthReducer from './AuthReducer'
 
 
 const INITIAL_STATE = {
-    user: null,
+    user: "Alex",
     isFetching: false,
     error: false
 }
