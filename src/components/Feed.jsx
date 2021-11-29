@@ -39,12 +39,15 @@ const Feed = ({username}) => {
     return (
         <section className={ styles.Feed }>
             <div className={ styles.Wrapper }>
-                <Share />
-                {/* {
+                {
+                    username === user.username &&  <Share />
+                }
+
+                {
                     posts.length && posts.map(post => (
                         <Post key={ post._id } post={ post } />
                     ))
-                } */}
+                }
             </div>
         </section>
     )

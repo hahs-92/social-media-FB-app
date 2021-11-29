@@ -1,3 +1,6 @@
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 //styles
 import styles from '../styles/components/RightBar.styles.module.css'
 //components
@@ -6,15 +9,34 @@ import Online from './Online'
 import { Users } from '../dummyData'
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER
+const API_URL = process.env.REACT_APP_API_URL
 
 
 const RightBar = ({user}) => {
+    const [friends, setFriends] = useState([])
+
+
+    const fetchFriends = async() => {
+        try {
+            const friendsList = await axios(`${API_URL}/users/friends/${user._id}`)
+
+            setFriends(friendsList.data)
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    useEffect(() => {
+        fetchFriends()
+    },[user._id])
+
+
     return (
         <section className={ styles.RightBar }>
             <div className={ styles.Wrapper }>
                 {
                     user
-                        ? <ProfileRightBar user={ user } />
+                        ? <ProfileRightBar user={ user } friends={ friends } />
                         : <HomeRightBar />
                 }
             </div>
@@ -49,7 +71,7 @@ const HomeRightBar = () => (
 )
 
 
-const ProfileRightBar = ({user}) => (
+const ProfileRightBar = ({user, friends}) => (
     <>
        <h4 className={ styles.Title}>User information</h4>
 
@@ -77,71 +99,23 @@ const ProfileRightBar = ({user}) => (
            </div>
        </section>
 
-       <h4 className={ styles.Title}>User information</h4>
+       <h4 className={ styles.Title}>User friends</h4>
 
        <section className={ styles.Followings}>
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/1.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
-
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/2.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
-
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/3.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
-
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/4.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
-
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/5.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
-
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/6.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
-
-           <div className={ styles.Following }>
-               <img
-                className={ styles.FollowingImage }
-                src={`${PF}person/7.jpeg`}
-                alt="following"
-            />
-               <span className={ styles.FollowingName }>Jess Gray </span>
-           </div>
+           {
+               friends && friends.map(friend => (
+                   <Link key={ friend._id } to={ `/profile/${friend.username}`}>
+                        <div className={ styles.Following }>
+                            <img
+                                className={ styles.FollowingImage }
+                                src={`${friends.coverPicture}` || `${PF}/noAvatar.png`}
+                                alt="following"
+                            />
+                            <span className={ styles.FollowingName }>{ friend.username }</span>
+                        </div>
+                   </Link>
+               ))
+           }
        </section>
     </>
 )
