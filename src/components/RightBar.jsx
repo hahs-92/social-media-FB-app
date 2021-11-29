@@ -34,7 +34,7 @@ const RightBar = ({user}) => {
 
     useEffect(() => {
         fetchFriends()
-    },[user._id])
+    },[user])
 
 
     return (

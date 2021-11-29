@@ -5,7 +5,8 @@ import {
     PermMedia,
     Label,
     Room,
-    EmojiEmotions
+    EmojiEmotions,
+    Cancel
 } from '@mui/icons-material'
 //styles
 import styles from '../styles/components/Share.styles.module.css'
@@ -70,6 +71,20 @@ const Share = () => {
                 </section>
 
                 <hr className={ styles.Hr }/>
+
+                {
+                    file && (
+                        <article className={ styles.ShareImgWrapper }>
+                            <img
+                                className={ styles.ShareImg}
+                                src={ URL.createObjectURL(file)}
+                                alt="cover"
+                            />
+
+                            <Cancel className={ styles.ShareCancelImg} onClick={ () => setFile(null)} />
+                        </article>
+                    )
+                }
 
                 <form className={ styles.Bottom } onSubmit={ handleSubmit }>
                     <div className={ styles.Options }>

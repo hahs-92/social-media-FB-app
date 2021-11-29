@@ -40,7 +40,7 @@ const Feed = ({username}) => {
         <section className={ styles.Feed }>
             <div className={ styles.Wrapper }>
                 {
-                    username === user.username &&  <Share />
+                    ( !username || username === user.username) &&  <Share />
                 }
 
                 {
