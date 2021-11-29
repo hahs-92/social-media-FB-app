@@ -28,6 +28,24 @@
     border-radius: 1rem;
 }
 
+.FollowButton {
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    background-color: #1872f2;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.FollowButton:focus {
+    outline: none;
+}
+
 .Title {
     margin-bottom: 2rem;
     font-weight: 500;

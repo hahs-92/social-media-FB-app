@@ -1,7 +1,9 @@
 export const actions = {
     LOGIN_START: 'LOGIN_START',
     LOGIN_SUCCESS: 'LOGIN_SUCCESS',
-    LOGIN_FAILURE: 'LOGIN_FAILURE'
+    LOGIN_FAILURE: 'LOGIN_FAILURE',
+    FOLLOW: 'FOLLOW',
+    UNFOLLOW: 'UNFOLLOW'
 }
 
 
@@ -17,4 +19,14 @@ export const LoginSuccess = (user) => ({
 export const LoginFailure = (error) => ({
     type: actions.LOGIN_FAILURE,
     payload: error
+})
+
+export const Follow = (userId) => ({
+    type: actions.FOLLOW,
+    payload: userId
+})
+
+export const UnFollow = (userId) => ({
+    type: actions.UNFOLLOW,
+    payload: userId
 })
